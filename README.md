@@ -1,2 +1,1 @@
-# sedmi-kontinent
-Website for constuction company
+### Be Sirius.
