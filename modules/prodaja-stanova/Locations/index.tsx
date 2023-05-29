@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { useQuery } from '@tanstack/react-query';
 import Link from 'components/Link';
-import { getCityLocations, getLocations } from 'lib/fetchService';
+import { getCityLocations, getLocations, imgUrl } from 'lib/fetchService';
 import Image from 'next/image';
 import { FC } from 'react';
 
@@ -29,7 +29,7 @@ const Locations: FC<Props> = ({ city }) => {
     <section>
       <div className="container">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {locations.map((data: any, index: number) => (
+          {locations.length ? locations.map((data: any, index: number) => (
             <Link
               key={index}
               href={`/prodaja-stanova/lokacija/${data.attributes.Adresa}`}
@@ -48,7 +48,7 @@ const Locations: FC<Props> = ({ city }) => {
                   height={400}
                   src={
                     data.attributes.Slike.data
-                      ? `http://127.0.0.1:1337${data.attributes.Slike.data?.attributes.url}`
+                      ? `${imgUrl}${data.attributes.Slike.data?.attributes.url}`
                       : '/img/construction-1.jpg'
                   }
                   width={720}
@@ -61,7 +61,7 @@ const Locations: FC<Props> = ({ city }) => {
                 </h2>
               </div>
             </Link>
-          ))}
+          )) : 'Nema nekretnina...'}
         </div>
       </div>
     </section>

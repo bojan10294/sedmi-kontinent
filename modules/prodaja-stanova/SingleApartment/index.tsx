@@ -4,6 +4,7 @@ import { FC } from 'react';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import Map, { Marker } from 'react-map-gl';
 import Text from 'components/Text';
+import { imgUrl } from 'lib/fetchService';
 
 interface Props {
   apartmentData: any;
@@ -25,11 +26,11 @@ const SingleApartment: FC<Props> = ({ apartmentData }) => {
             )}
             <Image
               alt="content"
-              className="object-cover object-center w-full rounded h-96"
+              className="object-cover object-center w-full rounded h-52 md:h-96"
               height={400}
               src={
                 apartmentData.attributes.Slike.data
-                  ? `http://127.0.0.1:1337${apartmentData.attributes.Slike.data.attributes.url}`
+                  ? `${imgUrl}${apartmentData.attributes.Slike.data.attributes.url}`
                   : '/img/construction-1.jpg'
               }
               width={720}

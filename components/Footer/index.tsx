@@ -43,7 +43,7 @@ const Footer = () => {
               width={545}
             />
           </Link>
-          <Text className="text-xs md:text-sm" tag="span">
+          <Text className="!text-xs md:!text-sm" tag="span">
             &#169; Sedmi kontinent {date.getFullYear()} All rights reserved.
           </Text>
         </div>

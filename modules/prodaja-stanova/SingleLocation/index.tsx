@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { useQuery } from '@tanstack/react-query';
 import Text from 'components/Text';
-import { getSingleLocation } from 'lib/fetchService';
+import { getSingleLocation, imgUrl } from 'lib/fetchService';
 import Image from 'next/image';
 import { FC } from 'react';
 
@@ -16,14 +16,14 @@ const SingleLocation: FC<Props> = ({ location }) => {
   return (
     <section className="pb-0">
       <div className="container">
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid gap-4 md:grid-cols-2">
           <Image
             alt="content"
-            className="object-cover object-center w-full mb-6 rounded h-96"
+            className="object-cover object-center w-full mb-6 rounded h-52 md:h-96"
             height={400}
             src={
               locationData.attributes.Slike.data
-                ? `http://127.0.0.1:1337${locationData.attributes.Slike.data?.attributes.url}`
+                ? `${imgUrl}${locationData.attributes.Slike.data?.attributes.url}`
                 : '/img/construction-1.jpg'
             }
             width={720}
