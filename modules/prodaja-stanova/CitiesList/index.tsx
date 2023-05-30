@@ -31,9 +31,19 @@ const CityList: FC<Props> = ({ city }) => {
                 </InteractiveElement>
               }
             >
+              <Link
+                key={0}
+                className={`px-4 py-1 !block focus:outline-none ${
+                    !city &&
+                    'text-white bg-primary-light'
+                  }`}
+                href="/prodaja-stanova"
+              >
+                Sve lokacije
+              </Link>
               {cities.map((data: any, index: number) => (
                 <Link
-                  key={index}
+                  key={index + 1}
                   className={`px-4 py-1 !block focus:outline-none ${
                     city === data.attributes.Naziv &&
                     'text-white bg-primary-light'
