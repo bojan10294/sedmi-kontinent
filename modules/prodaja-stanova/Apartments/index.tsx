@@ -12,7 +12,7 @@ interface Props {
 }
 
 const Apartments: FC<Props> = ({ location, title }) => {
-  const { data } = useQuery(['apartments'], () => getApartments(location));
+  const { data } = useQuery(['apartments', location], () => getApartments(location));
   const apartments = data.data;
 
   return (

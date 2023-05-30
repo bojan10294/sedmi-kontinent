@@ -9,6 +9,7 @@ import '../styles/globals.css';
 import '../styles/icons.css';
 import { Montserrat } from '@next/font/google';
 import { useRef } from 'react';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 const montserrat = Montserrat({
   display: 'swap',
@@ -38,6 +39,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           <Hydrate state={pageProps.dehydratedState}>
             <Component {...pageProps} />
           </Hydrate>
+          <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
       </LazyMotion>
     </div>

@@ -8,19 +8,19 @@ interface Props {
   title: string;
   bgImageSrc: string;
   alt: string;
-  subheading?: string;
+  location?: string;
 }
 
-const MiniHero: FC<Props> = ({ title, alt, bgImageSrc, subheading }) => {
+const MiniHero: FC<Props> = ({ title, alt, bgImageSrc, location }) => {
   const { data } = useQuery(
-    ['location'],
-    () => getSingleLocation(subheading || ''),
+    ['location', location],
+    () => getSingleLocation(location || ''),
     {
-      enabled: !!subheading
+      enabled: !!location
     }
   );
   const locationData = data?.data[0];
-  // console.log(subheading);
+
   return (
     <section className="relative items-center pt-20 pb-10 overflow-hidden md:pt-36 bg-gray-dark">
       <BackgroundImage
@@ -33,14 +33,14 @@ const MiniHero: FC<Props> = ({ title, alt, bgImageSrc, subheading }) => {
         <Text
           bold={false}
           className={`text-white ${
-            subheading ? 'lg:!text-5xl' : 'lg:!text-6xl'
+            location ? 'lg:!text-5xl' : 'lg:!text-6xl'
           } uppercase`}
           styling="h1"
           tag="h1"
         >
           {title}
         </Text>
-        {subheading && (
+        {location && (
           <Text
             className="!font-medium text-primary mt-4"
             styling="h3"

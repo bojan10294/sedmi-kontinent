@@ -10,7 +10,7 @@ interface Props {
 }
 
 const SingleLocation: FC<Props> = ({ location }) => {
-  const { data } = useQuery(['location'], () => getSingleLocation(location));
+  const { data } = useQuery(['location', location], () => getSingleLocation(location));
   const locationData = data.data[0];
 
   return (

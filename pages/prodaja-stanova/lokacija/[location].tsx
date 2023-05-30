@@ -20,12 +20,11 @@ export default function Home() {
   return (
     <>
       <HtmlHead title={`Stanovi | ${location}`} />
-
       <Navigation />
       <MiniHero
         alt="Prodaja stanova"
         bgImageSrc="/img/real-estate.jpg"
-        subheading={location as string}
+        location={location as string}
         title="Prodaja stanova"
       />
       <SingleLocation location={location as string} />
@@ -51,8 +50,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const queryClient = new QueryClient();
 
   await Promise.all([
-    queryClient.prefetchQuery(['apartments'], () => getApartments(location)),
-    queryClient.prefetchQuery(['location'], () => getSingleLocation(location))
+    queryClient.prefetchQuery(['apartments', location], () => getApartments(location)),
+    queryClient.prefetchQuery(['location', location], () => getSingleLocation(location))
   ]);
 
   return {
