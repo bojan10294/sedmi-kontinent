@@ -39,7 +39,7 @@ footer {
 }
 
 body > div > div {
-  @apply font-montserrat;
+  @apply font-lato;
 }
 
 section {

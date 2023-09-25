@@ -1,6 +1,8 @@
 import Text from 'components/Text';
 import ContactForm from 'modules/contact/ContactForm/index';
 import GridWithLines, { gridItem } from 'modules/home/GridWithLines';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import Map, { Marker } from 'react-map-gl';
 
 const aboutUs: gridItem[] = [
   {
@@ -21,30 +23,48 @@ const aboutUs: gridItem[] = [
   }
 ];
 
-const Contact = () => (
-  <>
-    <section>
-      <div className="container">
-        <div className="max-w-4xl mx-auto">
-          <ContactForm />
+const Contact = () => {
+  const lat = 44.81255643371841;
+  const lng = 20.461273407824144;
+  return (
+    <>
+      <section>
+        <div className="container">
+          <div className="gap-10 lg:gap-20 lg:grid lg:grid-cols-2">
+            <ContactForm />
+            <Map
+              initialViewState={{
+              latitude: lat,
+              longitude: lng,
+              zoom: 13
+            }}
+              mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
+              mapStyle="mapbox://styles/mapbox/streets-v9"
+              style={{ borderRadius: '10px', height: 400, width: '100%' }}
+            >
+              <Marker latitude={lat} longitude={lng}>
+                <div className="marker" />
+              </Marker>
+            </Map>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section>
-      <div className="container">
-        <div className="mb-6 text-center lg:mb-14">
-          <Text className="mb-3" styling="h2" tag="h1">
-            Da li imate dodatna pitanja?
-          </Text>
-          <Text className="max-w-4xl mx-auto lg:text-lg">
-            Pozovite nas ili nam pošaljite e-mail
-          </Text>
+      <section>
+        <div className="container">
+          <div className="mb-6 text-center lg:mb-14">
+            <Text className="mb-3" styling="h2" tag="h1">
+              Da li imate dodatna pitanja?
+            </Text>
+            <Text className="max-w-4xl mx-auto lg:text-lg">
+              Pozovite nas ili nam pošaljite e-mail
+            </Text>
+          </div>
+          <GridWithLines gridItems={aboutUs} />
         </div>
-        <GridWithLines gridItems={aboutUs} />
-      </div>
-    </section>
-  </>
-);
+      </section>
+    </>
+  );
+};
 
 export default Contact;

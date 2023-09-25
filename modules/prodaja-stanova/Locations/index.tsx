@@ -54,7 +54,7 @@ const Locations: FC<Props> = ({ city }) => {
                   width={720}
                 />
                 <h3 className="text-xs font-medium tracking-widest uppercase text-primary title-font">
-                  {data.attributes.Grad.data.attributes.Naziv}
+                  {data.attributes.Grad.data?.attributes.Naziv}
                 </h3>
                 <h2 className="text-lg font-medium text-gray-900 title-font">
                   {data.attributes.Adresa}

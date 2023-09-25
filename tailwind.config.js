@@ -67,6 +67,7 @@ module.exports = {
     'opacity-70',
     'opacity-80',
     'opacity-90',
+    'border-b-2'
   ],
 
   theme: {
@@ -104,7 +105,11 @@ module.exports = {
         }
       },
       fontFamily: {
-        montserrat: ['var(--font-montserrat)']
+        lato: ['var(--font-lato)'],
+        montserrat: ['var(--font-montserrat)'],
+        poppins: ['var(--font-poppins)'],
+        raleway: ['var(--font-raleway)'],
+        roboto: ['var(--font-roboto)'],
       },
       gridTemplateColumns: {
         'icon-text': '14px minmax(0, 1fr)',

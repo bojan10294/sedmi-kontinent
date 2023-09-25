@@ -23,7 +23,7 @@ export const navLinks = [
 ];
 
 export const inputClasses =
-  'w-full px-4 pt-4 pb-2 border rounded-lg outline-primary-light focus:outline-1';
+  'w-full px-4 pt-4 pb-2 border-b-2 outline-transparent focus:border-b-primary';
 
 interface Service {
   title: string;

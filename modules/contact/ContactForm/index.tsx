@@ -1,4 +1,3 @@
-import Card from 'components/Card';
 import Button from 'components/FormElements/Button';
 import Form from 'components/FormElements/Form';
 import ControlledInput from 'components/FormElements/Input/ControlledInput';
@@ -26,7 +25,7 @@ const ContactForm = () => {
   const { control, handleSubmit } = useForm<FormValues>();
 
   return (
-    <Card>
+    <>
       <Form onSubmit={handleSubmit(submit)}>
         <ControlledInput
           control={control}
@@ -55,9 +54,9 @@ const ContactForm = () => {
           name="message"
           rules={{ required: 'Molimo unesite poruku' }}
         />
-        <Button className="w-full !py-3 rounded-md">Pošaljite</Button>
+        <Button className="!py-3 !px-16 rounded-md">Pošaljite</Button>
       </Form>
-    </Card>
+    </>
   );
 };
 

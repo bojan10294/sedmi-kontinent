@@ -47,10 +47,10 @@ const Navigation = () => {
             }
           >
             <nav className="pt-10 lg:pt-0">
-              <ul className="grid gap-4 font-medium text-white lg:gap-10 lg:grid-flow-col">
+              <ul className="grid gap-4 font-medium text-white lg:gap-8 lg:grid-flow-col">
                 {navLinks.map(({ title, link }) => (
                   <li key={title}>
-                    <Link className="py-1" href={link} variant="link">
+                    <Link className="py-1 uppercase" href={link} variant="link">
                       {title}
                     </Link>
                   </li>

@@ -7,14 +7,15 @@ import {
 } from '@tanstack/react-query';
 import '../styles/globals.css';
 import '../styles/icons.css';
-import { Montserrat } from '@next/font/google';
+import { Lato } from '@next/font/google';
 import { useRef } from 'react';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
-const montserrat = Montserrat({
+const lato = Lato({
   display: 'swap',
   subsets: ['latin'],
-  variable: '--font-montserrat'
+  variable: '--font-lato',
+  weight: '400'
 });
 
 const loadFeatures = () =>
@@ -33,7 +34,8 @@ const App = ({ Component, pageProps }: AppProps) => {
     })
   );
   return (
-    <div className={`${montserrat.variable} flex flex-col min-h-screen`}>
+    // <div className={`${montserrat.variable} flex flex-col min-h-screen`}>
+    <div className={`${lato.variable} flex flex-col min-h-screen`}>
       <LazyMotion features={loadFeatures} strict>
         <QueryClientProvider client={queryClient.current}>
           <Hydrate state={pageProps.dehydratedState}>
