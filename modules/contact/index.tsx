@@ -30,7 +30,7 @@ const Contact = () => {
     <>
       <section>
         <div className="container">
-          <div className="gap-10 lg:gap-20 lg:grid lg:grid-cols-2">
+          <div className="grid gap-10 lg:gap-20 lg:grid-cols-2">
             <ContactForm />
             <Map
               initialViewState={{

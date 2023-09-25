@@ -46,7 +46,7 @@ const Navigation = () => {
               isOpen ? { height: ref.current?.scrollHeight } : { height: 0 }
             }
           >
-            <nav className="pt-10 lg:pt-0">
+            <nav className="pt-10 pb-4 lg:pt-0">
               <ul className="grid gap-4 font-medium text-white lg:gap-8 lg:grid-flow-col">
                 {navLinks.map(({ title, link }) => (
                   <li key={title}>
