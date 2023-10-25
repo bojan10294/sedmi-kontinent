@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { useQuery } from '@tanstack/react-query';
 import Text from 'components/Text';
-import { getSingleLocation, imgUrl } from 'lib/fetchService';
+import { getSingleLocation } from 'lib/fetchService';
 import Image from 'next/image';
 import { FC } from 'react';
 
@@ -10,7 +10,9 @@ interface Props {
 }
 
 const SingleLocation: FC<Props> = ({ location }) => {
-  const { data } = useQuery(['location', location], () => getSingleLocation(location));
+  const { data } = useQuery(['location', location], () =>
+    getSingleLocation(location)
+  );
   const locationData = data.data[0];
 
   return (
@@ -23,7 +25,7 @@ const SingleLocation: FC<Props> = ({ location }) => {
             height={400}
             src={
               locationData.attributes.Slike.data
-                ? `${imgUrl}${locationData.attributes.Slike.data?.attributes.url}`
+                ? locationData.attributes.Slike.data?.attributes.url
                 : '/img/construction-1.jpg'
             }
             width={720}

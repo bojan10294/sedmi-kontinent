@@ -17,7 +17,7 @@ export default async function tryCatch(url: string, param?: string) {
 }
 
 export const url = 'https://clownfish-app-hrroz.ondigitalocean.app/api';
-export const imgUrl = 'https://clownfish-app-hrroz.ondigitalocean.app';
+// export const imgUrl = 'https://clownfish-app-hrroz.ondigitalocean.app';
 
 export const getAllApartments = () => tryCatch(`${url}/apartments`);
 
