@@ -6,15 +6,16 @@ import Map, { Marker } from 'react-map-gl';
 
 const aboutUs: gridItem[] = [
   {
-    description: 'office@sedmi-kontinet.rs',
+    description:
+      'office@sedmi-kontinent.rs <br> nikola@sedmi-kontinent.rs <br> marko@sedmi-kontinent.rs',
     linkText: 'Pošaljite mejl',
-    linkUrl: 'mailto:office@sedmi-kontinet.rs',
+    linkUrl: 'mailto:office@sedmi-kontinent.rs',
     title: 'E-mail'
   },
   {
-    description: '+38160 53 81 714',
+    description: '+381 64 1433 879',
     linkText: 'Pozovite nas',
-    linkUrl: 'tel:+381605381714',
+    linkUrl: 'tel:+381641433879',
     title: 'Telefon'
   },
   {
@@ -34,10 +35,10 @@ const Contact = () => {
             <ContactForm />
             <Map
               initialViewState={{
-              latitude: lat,
-              longitude: lng,
-              zoom: 13
-            }}
+                latitude: lat,
+                longitude: lng,
+                zoom: 13
+              }}
               mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
               mapStyle="mapbox://styles/mapbox/streets-v9"
               style={{ borderRadius: '10px', height: 400, width: '100%' }}
