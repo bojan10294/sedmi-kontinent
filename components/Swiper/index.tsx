@@ -12,19 +12,40 @@ interface Props {
 }
 
 const SwiperComponent: FC<Props> = ({ swiperItems }) => (
-  <Swiper
-    modules={[Navigation, Pagination, A11y, Thumbs]}
-    navigation
-    pagination={{ clickable: true }}
-    slidesPerView={1}
-    spaceBetween={50}
-  >
-    {swiperItems?.map((item) => (
-      <SwiperSlide key={item}>
-        <Image alt="slider image" className="object-contain w-full aspect-video" height={400} src={item} width={600} />
-      </SwiperSlide>
-    ))}
-  </Swiper>
+  <div>
+    <Swiper
+      breakpoints={{
+        1024: {
+          slidesPerView: 4,
+          spaceBetween: 32
+        },
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 24
+        },
+        480: {
+          slidesPerView: 2,
+          spaceBetween: 24
+        }
+      }}
+      modules={[Navigation, Pagination, A11y, Thumbs]}
+      navigation
+      pagination={{ clickable: true, el: '.swiper-custom-pagination' }}
+    >
+      {swiperItems?.map((item) => (
+        <SwiperSlide key={item}>
+          <Image
+            alt="slider image"
+            className="object-contain w-full aspect-video min-h-[21rem]"
+            height={800}
+            src={item}
+            width={1200}
+          />
+        </SwiperSlide>
+      ))}
+    </Swiper>
+    <div className="flex justify-center mt-3 swiper-custom-pagination" />
+  </div>
 );
 
 export default SwiperComponent;

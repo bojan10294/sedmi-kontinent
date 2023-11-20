@@ -63,9 +63,10 @@ section {
   background-image: url('/icons/marker-editor.svg');
 }
 
-.swiper-button-next, .swiper-button-prev{
-  @apply !text-primary;
+.swiper-button-next,
+.swiper-button-prev {
+  @apply !text-primary !hidden lg:!flex;
 }
-.swiper-pagination-bullet-active{
+.swiper-pagination-bullet-active {
   @apply !bg-primary;
 }
