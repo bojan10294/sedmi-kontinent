@@ -28,6 +28,7 @@ const SwiperComponent: FC<Props> = ({ swiperItems }) => (
           spaceBetween: 24
         }
       }}
+      lazyPreloadPrevNext={3}
       modules={[Navigation, Pagination, A11y, Thumbs]}
       navigation
       pagination={{ clickable: true, el: '.swiper-custom-pagination' }}
